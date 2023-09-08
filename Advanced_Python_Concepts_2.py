@@ -6,13 +6,15 @@ word using a dictionary. The program should print the words and their counts.
 import json, re
 class CountWords:
     def __init__(self, text):
+        # Se pueden combinar las 2 sustituciones en un solo regex
         self.text = re.sub(r'\n', '', text)
         self.text = re.sub(r'\t','', self.text)
 
     def clean_marks(self, punctuation_marks):
+        # Tambien se puede usar re.sub para limpiar los signos de puntuacion
         #self.list_words = list(self.text)
         words = self.text
-        words = words.split(" ")
+        words = words.split(" ")  # O simplemente "words = self.text.split()"
         self.list_words = []
         for word in words:
             if word != "":
@@ -33,6 +35,7 @@ class CountWords:
         return dictionary
 
     def clean_vowels(self, vowels, **dict_clmarks):
+        # Al final las vocales en ingles se usan como palabras, no crees?
         for vowel in vowels:
             if vowel in dict_clmarks:
                 del dict_clmarks[vowel]
@@ -49,3 +52,11 @@ dictionary_words = text_file.organize_words(list_clmarks)
 final_dictionary = text_file.clean_vowels(vowels, **dictionary_words)
 with open('final_file.json', 'w') as file:
     json.dump(dictionary_words, file, indent=4)
+
+
+# OBSERVACIONES
+# Seguir guia de estilos de codigo python PEP8: Espacios despues de las comas, dos lineas
+# vacias antes y despues de definir una funcion, espacio despues de # en los comentarios
+#  ... https://peps.python.org/pep-0008/
+
+# Seria bueno tener bien documentado el codigo, con anotaciones de tipo, docstring, comentarios, ...

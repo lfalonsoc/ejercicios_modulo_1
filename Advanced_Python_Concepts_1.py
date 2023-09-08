@@ -21,6 +21,7 @@ class BankAccount:
         return self.balance
 
     def withdrawing(self, value_out):
+        # Es importante verificar si el balance no sera negativo despues de la transaccion
         self.balance = self.balance - value_out
         return self.balance
 
@@ -33,6 +34,8 @@ def get_values(prompt, _type):
         value = input(prompt)
         try:
             if int(value) == 0:
+                # Si el usuario quiere ingresar una cantidad de dinero entre 0 y 0.9, no va a funcionar
+                # en cambio se le va a limpiar la pantalla
                 return int(value)
             elif _type(value) > 0:
                 return _type(value)
@@ -104,14 +107,9 @@ while option != 4:
 print("Thank you for visiting the application.\nWe look forward to seeing you soon.")
 
 
+# OBSERVACIONES
+# Seguir guia de estilos de codigo python PEP8: Espacios despues de las comas, dos lineas
+# vacias antes y despues de definir una funcion, espacio despues de # en los comentarios
+#  ... https://peps.python.org/pep-0008/
 
-
-
-
-
-
-"""
-Exercise 2
-Create a Python program that reads a text file and counts the occurrences of each
-word using a dictionary. The program should print the words and their counts.
-"""
+# Seria bueno tener bien documentado el codigo, con anotaciones de tipo, docstring, comentarios, ...
