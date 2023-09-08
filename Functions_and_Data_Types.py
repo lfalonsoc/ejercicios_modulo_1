@@ -21,3 +21,11 @@ def reverse_string(string):
 string = "Lists (known as arrays in other languages)"
 
 print(reverse_string(string))
+
+
+# OBSERVACIONES
+# Seguir guia de estilos de codigo python PEP8: Espacios despues de las comas, dos lineas
+# vacias antes y despues de definir una funcion, espacio despues de # en los comentarios
+#  ... https://peps.python.org/pep-0008/
+
+# Seria bueno tener bien documentado el codigo, con anotaciones de tipo, docstring, comentarios, ...

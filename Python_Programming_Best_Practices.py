@@ -31,6 +31,9 @@ def funcion_timer(funcion_b):
         time_final = time.time()
         execute_time = time_final - time_start
 
+        # En general es mala idea que la funcion decorada cambie el
+        # valor de retorno de la funcion original, es ideal que solo sea
+        # "return result"
         return result, execute_time
 
     return funcion_dec
@@ -48,3 +51,11 @@ answer = sorter_list(list_number)
 print(f"List to be sorted {list_number}")
 print(f"Sorter list {answer[0]}")
 print("Execution time: {} s".format(answer[1]))
+
+
+# OBSERVACIONES
+# Seguir guia de estilos de codigo python PEP8: Espacios despues de las comas, dos lineas
+# vacias antes y despues de definir una funcion, espacio despues de # en los comentarios
+#  ... https://peps.python.org/pep-0008/
+
+# Seria bueno tener bien documentado el codigo, con anotaciones de tipo, docstring, comentarios, ...
